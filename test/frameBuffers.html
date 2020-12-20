@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Renderer.js</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+    }
+    canvas {
+      position: relative;
+      /* border: 1px solid black; */
+    }
+  </style>
+</head>
+
+<body>
+
+  <script src="../dist/Candy.build.js"></script>
+
+  <script>
+    // init Candy
+    const c = new Candy();
+    c.createCanvas(800, 600);
+
+    let osc = c.createScreenBuffer('os');
+
+    let r = randomRGB();
+    
+    animate();
+    function animate() {
+      c.clear();
+      
+      osc.clear(rgba(255,255,255,0.05));
+      osc.fill(['deepskyblue', 'crimson', 'purple']);
+      osc.noStroke();
+      osc.rect(mouseX-50, mouseY-50, 100, 100, 50);
+
+      c.putScreenBuffer(osc);
+
+      c.noFill();
+      c.rect(mouseX - 50, mouseY - 50, 100, 100, 50);
+      
+      c.strokeWeight(2.0);
+      c.textSize(100);
+      c.textFont('Impact');
+      c.textAlign(CENTER);
+      c.textBaseline(MIDDLE);
+      c.text('Candy.js', CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+      
+      c.loop(animate);
+    }
+  </script>
+</body>
+
+</html>

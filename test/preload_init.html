@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Candy.js</title>
+  <style>
+    * {
+      /* margin: 0; */
+      /* padding: 0; */
+    }
+
+    canvas {
+      position: absolute;
+      /* border: 1px solid black; */
+    }
+  </style>
+</head>
+
+<body>
+
+  <script src="../dist/Candy.build.js"></script>
+
+  <canvas id="c"></canvas>
+  <script>
+    const c = new Candy("#c", WINDOW_WIDTH, WINDOW_HEIGHT);
+    // c.createCanvas(800, 600);
+    // c.fullScreen();
+
+    let img = c.loadImage('./src/big_image.jpg');
+    
+    function preload() {
+      console.log('this is preload')
+      mygame();
+    }
+    
+    function mygame() {
+      c.clear();
+
+      console.log(CANVAS_WIDTH)
+      c.rect(mouseX, mouseY, 300, 200)
+      c.image(img, mouseX, mouseY, 300, 200);
+
+      c.loop(mygame);
+    }
+  </script>
+</body>
+
+</html>
