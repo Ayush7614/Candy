@@ -5,7 +5,7 @@ JavaScript Canvas Rendering Engine Candy.js
 
 > Inspired by p5.js
 
-Check out cool demos [here](https://anuraghazra.github.io/CanvasFun/)
+Check out cool demos [here]()
 
 
 ## Getting Started
